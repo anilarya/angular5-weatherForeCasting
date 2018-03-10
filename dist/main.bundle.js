@@ -156,8 +156,8 @@ var AppComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ICON_BASE_URL; });
 
 var API_KEY = '97ed7afbc7cd322f478581ebb18ab89d';
-var BASE_URI = 'http://api.openweathermap.org/data/2.5/forecast?';
-var ICON_BASE_URL = 'http://openweathermap.org/img/w/';
+var BASE_URI = 'https://api.openweathermap.org/data/2.5/forecast?';
+var ICON_BASE_URL = 'https://openweathermap.org/img/w/';
 
 
 /***/ }),

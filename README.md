@@ -1,4 +1,4 @@
-# Openweathermap
+# Openweathermap   [Angular 5 framework] 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
 ## Steps to run this project locally

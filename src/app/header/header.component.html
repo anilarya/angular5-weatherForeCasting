@@ -1,0 +1,31 @@
+<header>
+    <div class="header-container" id="top-view"> 
+        <a data-ui-sref="dashboard" class="logo pull-left">
+            <img src="../assets/images/favicon.svg" alt="CF Logo" />
+        </a>
+        <div class="pull-right"> 
+            
+            <div class="header-tab" dropdown auto-close="outsideClick">
+                <span class="toggle-container" dropdown-toggle>
+                    <span class="icon account-icon">
+                        <i class="material-icons">account_circle</i>
+                    </span>
+                </span>
+                <ul class="dropdown-menu" role="menu">
+                    <div class="account-div">
+                        <div class="name-container">
+                            <div class="first-letter"> </div>
+                            <div class="name-mail-container">
+                                <p>[[loginFName | lowercase]]</p>
+                                <p>[[loginEmail | lowercase]]</p>
+                            </div>
+                        </div>
+                        <div class="log-out-container">
+                            <button class="btn pull-right" (click)="logoutFn()">Logout</button>
+                        </div>
+                    </div>
+                </ul>
+            </div>  
+        </div>
+    </div>
+</header>

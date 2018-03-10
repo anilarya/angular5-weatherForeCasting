@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header></app-header>
+ 
+<div class="container">
+  <div class="col-sm-12">
+    <h2>Next 5 day / 3 hour forecast data</h2>
+
+    <div class="col-sm-4">
+    Mode of search : 
+      <select class="form-controll-main" (change)="onSelectSearchMode($event.target.value)" [(ngModel)]="searchMode" >
+          <option value='city_name'> City Name</option>
+          <option value='city_id'> City Id</option>
+          <option value='geo_ordinates'> Geographic Co-ordinates</option>
+          <option value='zip_code'> ZIP code</option>
+        </select>
+    </div> 
+    <div class="col-sm-8">
+      <input type="text" name="" class="form-controll-main" [(ngModel)]="searchKey" placeholder="{{placeholder}}" *ngIf="searchMode!='geo_ordinates'"> 
+
+      <div *ngIf="searchMode=='geo_ordinates'">
+        Lat :<input type="text" name="" class="form-controll-main" [(ngModel)]="latitude" placeholder="<latitude>" > 
+
+        Long :<input type="text" name="" class="form-controll-main" [(ngModel)]="longitude" placeholder="<longitude>"> 
+
+        <button class="btn btn-sm btn-info" (click) = 'getWeatherDetails()'>Fetch</button> 
+
+      </div>
+      <button class="btn btn-sm btn-info" (click) = 'getWeatherDetails()' *ngIf="searchMode!='geo_ordinates'">Fetch</button> 
+    </div> 
+
+  </div><hr>
+  <div class="col-sm-12">
+    <span *ngIf="weatherForcaseDetails.city"><h2>{{ weatherForcaseDetails.city.name }},{{ weatherForcaseDetails.city.country }}</h2></span> 
+  </div>
+  <div class="col-sm-4" *ngFor="let list of weatherForcaseDetails.list">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        {{ list.dt_txt | date: 'dd MMM yyyy T hh:mm:ss a' }}
+
+      </div>
+      <div class="panel-body">
+        <div *ngFor="let weather of list.weather">
+          <font size="4"><img [src]="getIconImageUrl(weather.icon)">  {{ getTemperature(list.main.temp) }}*c , {{weather.main }} </font>
+
+          <div> {{weather.description}} -- High : {{ getTemperature(list.main.temp_max) }}*c ~ Low : {{ getTemperature(list.main.temp_min) }}*c</div>
+        </div>
+      </div>
+      <div class="panel-footer">Pressure: {{list.main.pressure}}hPa , Humidity:{{list.main.humidity}}% </div>
+    </div>
+  </div> 
+
+  <div class="col-sm-12">
+    <div *ngIf='errorMessage' > 
+        <div class="alert alert-danger">
+          <strong>Oops!</strong>  {{errorMessage}}
+        </div>
+    </div>
+  </div>
+</div>

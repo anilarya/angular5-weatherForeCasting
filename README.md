@@ -1,10 +1,14 @@
 # Openweathermap
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
-## Development server
+## Steps to run this project locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1.Install latest npm ,node and angular-cli, [Node version : v6.12.3, NPM version : 3.10.10]
+
+2.Clone repository  using command : `git clone https://github.com/anilarya/angular5-weatherForeCasting.git`
+
+3.Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 

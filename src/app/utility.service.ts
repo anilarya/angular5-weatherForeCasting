@@ -16,11 +16,13 @@
           });
         };
 
-      extractKeysFromObjectsList( objects , keyName ) {
-        return objects.map( item => {
-          return item[ keyName ];
-        });
-      };
+      const find = ( array , callback ) => {
+        for ( let i = 0 ; i < array.length ; i++ ) {
+          if ( callback( array[ i ] ) ) {
+            return array[ i ];
+          }
+        }
+      }
 
 
       objectArrayIndexOf( objects, keys, value ) {

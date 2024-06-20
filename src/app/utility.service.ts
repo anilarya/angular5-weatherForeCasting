@@ -1,44 +1,46 @@
-import { Injectable } from '@angular/core';
+    import { Injectable } from '@angular/core';
 
-@Injectable()
-export class UtilityService {
+    @Injectable()
+    export class UtilityService {
 
-    constructor() { }
+        constructor() { }
 
-    findInObjectsArrayFromKey( objects, keyName, value, ignoreCase ) {
-			if( ignoreCase ) {
-				return objects.find( item => {
-					return item[ keyName ].toLowerCase() == value.toLowerCase();
-				});	
-			}
-			return objects.find( item =>{
-				return item[ keyName ] == value;
-			});
-		};
+        findInObjectsArrayFromKey( objects, keyName, value, ignoreCase ) {
+          if( ignoreCase ) {
+            return objects.find( item => {
+              return item[ keyName ].toLowerCase() == value.toLowerCase();
+            });	
+          }
+          return objects.find( item =>{
+            return item[ keyName ] == value;
+          });
+        };
 
-	extractKeysFromObjectsList( objects , keyName ) {
-		return objects.map( item => {
-			return item[ keyName ];
-		});
-	};
+      const find = ( array , callback ) => {
+        for ( let i = 0 ; i < array.length ; i++ ) {
+          if ( callback( array[ i ] ) ) {
+            return array[ i ];
+          }
+        }
+      }
 
 
-	objectArrayIndexOf( objects, key, value ) {
-		return this.extractKeysFromObjectsList( objects, key ).indexOf( value );
-	};
+      objectArrayIndexOf( objects, keys, value ) {
+        return this.extractKeysFromObjectsList( objects, keys ).indexOf( value );
+      };
 
-	objectArrayFindFromKey( objects, key, value ) {
-		let  index = this.extractKeysFromObjectsList( objects, key ).indexOf( value );
-		if( index === -1 ) {
-			return;
-		}
-		return objects[ index ];
-	};
+      objectArrayFindFromKey( objects, key, value ) {
+        let  index = this.extractKeysFromObjectsList( objects, key ).indexOf( value );
+        if( index === -1 ) {
+          return;
+        }
+        return objects[ index ];
+      };
 
-	filterObjectsFromKeys( objects, keys, keyName ) {
-			return objects.filter( item => {
-				return keys.indexOf( item[ keyName ]) !== -1;
-			});
-		};
+      filterObjectsFromKeys( objects, keys, keyName ) {
+          return objects.filter( item => {
+            return keys.indexOf( item[ keyName ]) !== -1;
+          });
+        };
 
-}
+    }
